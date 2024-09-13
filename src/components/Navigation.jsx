@@ -7,7 +7,7 @@ export default function Navigation()
 
     return(
         <div className="sidebar">
-            <nav className="navigation">
+            <div className="navigation">
                 <ul className="list">
                     <li className="list__item">
                         <a className="link link--navigation" href="/home">Početna</a>
@@ -19,7 +19,7 @@ export default function Navigation()
                         <a className="link link--navigation" href="/categories">Kategorije</a>
                     </li>
                 </ul>
-            </nav>
+            </div>
         </div>
     )
 }

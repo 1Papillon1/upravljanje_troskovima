@@ -1,0 +1,11 @@
+/*
+    base.scss
+*/
+@import "./_variables";
+
+
+body {
+    background-color: #f4f4f9;
+    margin: 0;
+    font-family: $primaryFont;
+}

@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-/* import App from './App'; */
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import Root from './routes/Root';
+import HomePath from './routes/HomePath';
+import ExpensesPath from './routes/ExpensesPath';
+import CategoriesPath from './routes/CategoriesPath';
 import Navigation from './components/Navigation';
 import "./styles/_app.scss";
 
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+  },
+  {
+    path: "/categories",
+    element: <CategoriesPath />,
+  },
+  {
+    path: "/expenses",
+    element: <ExpensesPath />,
   },
 ]);
 

@@ -13,7 +13,7 @@ export default function Navigation()
             <div className="navigation">
                 <ul className="list">
                     <li className="list__item">
-                        <a className="link link--navigation" href="/home">
+                        <a className="link link--navigation" href="/">
                         <HomeIcon className="link__icon" />
                         <span className="link__text">Početna</span>
                         </a>

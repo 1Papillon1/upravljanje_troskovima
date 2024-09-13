@@ -9,6 +9,7 @@ import HomePath from './routes/HomePath';
 import ExpensesPath from './routes/ExpensesPath';
 import CategoriesPath from './routes/CategoriesPath';
 import Navigation from './components/Navigation';
+import Header from './components/Header';
 import "./styles/_app.scss";
 
 

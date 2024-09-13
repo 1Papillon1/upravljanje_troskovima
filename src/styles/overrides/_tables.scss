@@ -1,0 +1,21 @@
+/*
+    tables.scss
+*/
+
+.table {
+    &__heading {
+        &--right {
+            text-align: right;
+        }
+    }
+    &__data {
+        &--right {
+            text-align: right;
+        }
+    }
+    & > th {
+        text-align: right;
+        
+    }
+}
+

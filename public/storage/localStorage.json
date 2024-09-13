@@ -1,8 +1,8 @@
 {
     "expenses": [
-      { "id": 1, "name": "Kupovina laptopa", "iznos": 600 },
-      { "id": 2, "name": "Kupovina patika", "iznos": 80 },
-      { "id": 3, "name": "Plaćanje najamnine", "iznos": 320 }
+      { "id": 1, "name": "Kupovina laptopa", "price": 600 },
+      { "id": 2, "name": "Kupovina patika", "price": 80 },
+      { "id": 3, "name": "Plaćanje najamnine", "price": 320 }
     ],
     "categories": [
       { "id": 1, "name": "Štednja i ulaganje" },

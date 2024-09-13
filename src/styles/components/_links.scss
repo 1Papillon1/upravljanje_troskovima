@@ -4,16 +4,28 @@
 @import "../base/_variables";
 
 .link {
-    display: block;
+    display: flex;
+    align-items: center;
     color: #ecf0f1;
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 15px 10px;
     border-radius: 4px;
     margin-bottom: 10px;
     font-size: 16px; 
     font-weight: bold;
+    justify-content: flex-start;
+
     &:hover {
         background-color: #34495e;
+    }
+
+    &__icon {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    &__text {
+        display: inline;
+        margin-left: 1rem;
     }
 }
 

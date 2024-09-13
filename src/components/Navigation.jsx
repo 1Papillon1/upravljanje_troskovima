@@ -1,4 +1,7 @@
 import React from "react";
+import HomeIcon from '@mui/icons-material/Home';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import CategoryIcon from '@mui/icons-material/Category';
 
 
 
@@ -10,13 +13,25 @@ export default function Navigation()
             <div className="navigation">
                 <ul className="list">
                     <li className="list__item">
-                        <a className="link link--navigation" href="/home">Početna</a>
+                        <a className="link link--navigation" href="/home">
+                        <HomeIcon className="link__icon" />
+                        <span className="link__text">Početna</span>
+                        </a>
+                        
                     </li>
                     <li className="list__item">
-                        <a className="link link--navigation" href="/expenses">Troškovi</a>
+                        <a className="link link--navigation" href="/expenses">
+                        <AttachMoneyIcon className="link__icon" />
+                        <span className="link__text">Troškovi</span>
+                        </a>
+                        
                     </li>
                     <li className="list__item">
-                        <a className="link link--navigation" href="/categories">Kategorije</a>
+                        <a className="link link--navigation" href="/categories">
+                        <CategoryIcon className="link__icon" />
+                        <span className="link__text">Kategorije</span>
+                        </a>
+                        
                     </li>
                 </ul>
             </div>

@@ -20,14 +20,14 @@ export default function Navigation()
                         
                     </li>
                     <li className="list__item">
-                        <a className="link link--navigation" href="/expenses">
+                        <a className="link link--navigation" href="/troskovi">
                         <AttachMoneyIcon className="link__icon" />
                         <span className="link__text">Troškovi</span>
                         </a>
                         
                     </li>
                     <li className="list__item">
-                        <a className="link link--navigation" href="/categories">
+                        <a className="link link--navigation" href="/kategorije">
                         <CategoryIcon className="link__icon" />
                         <span className="link__text">Kategorije</span>
                         </a>

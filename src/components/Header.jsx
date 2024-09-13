@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Person } from "@mui/icons-material";
+
 
 export default function Header() 
 {   
@@ -30,11 +32,11 @@ export default function Header()
     return(
         <div className="header">
             <div className="header--left">
-                {currentRoute} /
+                <a className="header__link" href={route}>{currentRoute}</a> /
             </div>
 
             <div className="header--right">
-
+                <Person className="header__icon"/>
             </div>
         </div>
     )

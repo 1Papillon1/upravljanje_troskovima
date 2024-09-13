@@ -19,4 +19,15 @@
     &--right {
 
     }
+
+    &__icon {
+        transform: scale(1.6);
+    }
+
+    &__link {
+        color: #34495e;
+        font-size: 16px;
+        font-weight: medium;
+        text-decoration: none;
+    }
 }

@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import Root from './routes/Root';
 import Navigation from './components/Navigation';
+import "./styles/_app.scss";
+
 
 
 const router = createBrowserRouter([

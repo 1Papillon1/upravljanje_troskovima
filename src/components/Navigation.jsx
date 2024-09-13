@@ -6,18 +6,20 @@ export default function Navigation()
 {
 
     return(
-        <div className="navigation">
-            <ul className="list">
-                <li className="list__item">
-                    <a href="/home">Početna</a>
-                </li>
-                <li className="list__item">
-                    <a href="/expenses">Troškovi</a>
-                </li>
-                <li className="list__item">
-                    <a href="/categories">Kategorije</a>
-                </li>
-            </ul>
+        <div className="sidebar">
+            <nav className="navigation">
+                <ul className="list">
+                    <li className="list__item">
+                        <a className="link link--navigation" href="/home">Početna</a>
+                    </li>
+                    <li className="list__item">
+                        <a className="link link--navigation" href="/expenses">Troškovi</a>
+                    </li>
+                    <li className="list__item">
+                        <a className="link link--navigation" href="/categories">Kategorije</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     )
 }

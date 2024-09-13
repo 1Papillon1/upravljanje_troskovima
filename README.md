@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Instalacija Visual Studio Code-a
+1.	Preuzimanje Visual Studio Code-a
+•	Posjetite službenu stranicu Visual Studio Code-a, koja je dostupna na: https://code.visualstudio.com/ 
+•	Pronađite gumb „Download“, te preuzmite instalacijsku datoteku. (ne morate brinuti o operativnom sustavu, jer ga stranica automatski prepoznaje i prilagođava instalacijsku datoteku)
+2.	Instalacija Visual Studio Code-a
+•	Nakon završetka preuzimanja, pokrenite instalacijsku datoteku
+•	Možete ostaviti sve prema „defaultu“ vodeći se na iduće korake čarobnjaka, te na kraju odaberite stvaranje prečaca
+3.	Završetak instalacije
+•	Prilikom završetka aplikacije, pokrenite Visual Studio Code
+•	Sada imate prikaz Visual Studio Code-a i njegovih mogućnosti
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Instalacija Node.js i NPM
 
-## Available Scripts
+1.	Preuzimanje Node.js
+•	Pristupite službenoj stranici Node.js: https://nodejs.org/en 
+•	Pritisnite na gumb Download Node.js (LTS)
+•	Odaberite vaš operativni sustav (Windows, macOS ili Linux)
+•	Pričekajte, dok se preuzimanje ne završi
+2.	Instalacija Node.js
+•	Pokrenite instalacijsku datoteku
+•	Slijedite upute čarobnjaka za instalaciju Node.js-a, te možete ostaviti sve prema „defaultu
+3.	Provjera instalacije Node.js i NPM-a
+•	U Visual Studio Code-u, pritisnite Ctrl + `, te će vam se otvoriti terminal, koji je omogućuje unos naredbi ključnih za razvoj aplikacija i projekata
+•	Naredba „node –v“ provjerava da li je Node.js uspješno instaliran i prikazuje trenutnu verziju Node.js-a
+•	Naredba „npm –v“ provjerava da li je NPM uspješno instaliran, te trenutnu verziju
+4.	Prilagodba Node.js-a za razvoj aplikacije
+•	Nakon provjere, poželjno je provjeriti, je li NPM ažuriran na najnoviju verziju
+•	Pokrenite naredbu u terminalu „npm install –g npm@latest“
+•	Ako posljednja verzija nije instalirana, pričekajte dok se ažuriranje ne završi
 
-In the project directory, you can run:
+# Kreiranje React projekta "Upravljanje Troskovima"
 
-### `npm start`
+1.	Pokrenuti Visual Studio Code
+2.	Prikazati terminal (Ctrl + `)
+3.	Utipkati sljedeću naredbu: „npx create-react-app upravljanje-troskovima“
+4.	Potrebno je pričekati nekoliko minuta kako bi se instaliralo sve što je potrebno
+5.	Postoji mogućnost da je izašla novija verzija „npm-a“ terminal će prikazati poruku „npm notice new version of npm available!“
+6.	Ako želimo pokrećemo naredbu „npm install -g npm@10.8.3“, koja će ažurirati npm na najnoviju verziju.
+7.	Postavljamo trenutan direktorij na aplikaciju koristeći se naredbom „cd upravljanje-troskovima“
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Implementacija potrebnih tehnologija
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. SCSS/SASS - "npm install -g sass"
 
-### `npm test`
+### (Neobavezno)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Live Sass Compiler (extension)
 
-### `npm run build`
+###
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Material UI - "npm install @mui/material @emotion/react @emotion/styles @mui/icons-material
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. React Router - "npm install react-router-dom"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Pokretanje aplikacija
 
-### `npm run eject`
+Pokretanje aplikacije u razvojnom načinu - "npm start"
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Pokretanje aplikacije u razvojnom načinu, ali ovisno o konfiguraciji projekta - "npm run dev"
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Kreiranje proizvodne verzije aplikacije - "npm run build"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

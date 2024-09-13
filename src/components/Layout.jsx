@@ -17,9 +17,8 @@ export default function Layout({  })
         <div className="layout">
             <Header />
             <Navigation />
-            <main className="content">
-                <Outlet /> {/* Ovdje će se prikazivati sadržaj trenutne rute */}
-            </main>
+            <Outlet /> 
+
         </div>
     )
 }

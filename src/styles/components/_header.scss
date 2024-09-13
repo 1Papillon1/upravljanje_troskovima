@@ -8,7 +8,7 @@
     align-items: center;
     background-color: #f4f4f4;
     color: #333;
-    padding: 30px 30px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     
@@ -26,8 +26,8 @@
 
     &__link {
         color: #34495e;
-        font-size: 16px;
-        font-weight: medium;
+        font-size: 14px;
+        font-weight: bold;
         text-decoration: none;
     }
 }

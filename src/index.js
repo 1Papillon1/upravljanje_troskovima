@@ -6,9 +6,11 @@ import {
   useLocation,
 } from "react-router-dom";
 import Root from './routes/Root';
+import AuthPath from './routes/AuthPath';
 import HomePath from './routes/HomePath';
 import ExpensesPath from './routes/ExpensesPath';
 import CategoriesPath from './routes/CategoriesPath';
+import StatisticsPath from './routes/StatisticsPath';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Layout from './components/Layout';
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Root /> }, 
       { path: "/kategorije", element: <CategoriesPath /> },
-      { path: "/troskovi", element: <ExpensesPath /> },
+      { path: "/statistika", element: <StatisticsPath /> },
     ],
   },
   

@@ -13,7 +13,7 @@ export default function Navigation()
             <div className="navigation">
                 <ul className="list">
                     <li className="list__item">
-                        <a className="link link--navigation" href="/">
+                        <a className="link link--navigation" href="/pocetna">
                         <HomeIcon className="link__icon" />
                         <span className="link__text">Početna</span>
                         </a>
@@ -27,9 +27,16 @@ export default function Navigation()
                         
                     </li>
                     <li className="list__item">
-                        <a className="link link--navigation" href="/kategorije">
+                        <a className="link link--navigation" href="/statistika">
                         <CategoryIcon className="link__icon" />
-                        <span className="link__text">Kategorije</span>
+                        <span className="link__text">Statistika</span>
+                        </a>
+                        
+                    </li>
+
+                    <li className="list__item">
+                        <a className="link link--navigation" href="/login">
+                        <span className="link__text">Odjava</span>
                         </a>
                         
                     </li>

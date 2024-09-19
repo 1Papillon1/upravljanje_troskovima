@@ -21,8 +21,8 @@ export default function Header()
         } else if (route == '/troskovi') {
             setCurrentRoute('Troškovi');
     
-        } else if (route == '/kategorije') {
-            setCurrentRoute('Kategorije');
+        } else if (route == '/statistika') {
+            setCurrentRoute('Statistika');
         }
     },[])
 

@@ -9,23 +9,34 @@ import Root from './routes/Root';
 import AuthPath from './routes/AuthPath';
 import HomePath from './routes/HomePath';
 import ExpensesPath from './routes/ExpensesPath';
-import CategoriesPath from './routes/CategoriesPath';
 import StatisticsPath from './routes/StatisticsPath';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Layout from './components/Layout';
 import "./styles/_app.scss";
 
-
+/*
+Root provjerava da li je korisnik ulogiran ili nije
+Ako je redirecta na /*
+Ako nije redirecta na /login
+*/
 
 
 const router = createBrowserRouter([
+  { 
+    path: "/login", 
+    element: <AuthPath /> // Autentifikacija van glavnih ruta 
+  },
+  { 
+    path: "/", 
+    element: <Root /> // Za redirect 
+  },
   {
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <Root /> }, 
-      { path: "/kategorije", element: <CategoriesPath /> },
+      { path: "/pocetna", element: <HomePath /> }, 
+      { path: "/troskovi", element: <ExpensesPath /> },
       { path: "/statistika", element: <StatisticsPath /> },
     ],
   },

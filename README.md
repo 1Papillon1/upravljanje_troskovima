@@ -55,3 +55,4 @@
 - U terminalu upišite sljedeću naredbu:  
   ```bash
   npx create-react-app upravljanje-troskovima
+

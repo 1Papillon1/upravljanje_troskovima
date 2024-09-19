@@ -4,12 +4,14 @@ import { useLocation } from "react-router-dom";
 import { Person } from "@mui/icons-material";
 
 
+
 export default function Header() 
 {   
     const [currentRoute, setCurrentRoute] = useState('Početna');
 
     const location = useLocation();
     const route = location.pathname;
+    
     
     
 
@@ -36,7 +38,14 @@ export default function Header()
             </div>
 
             <div className="header--right">
-                <Person className="header__icon"/>
+                <ul className="list list--horizontal">
+                    <li className="list--item">
+                        
+                    </li>
+                    <li className="list--item">
+                        <Person className="header__icon"/>
+                    </li>
+                </ul>
             </div>
         </div>
     )

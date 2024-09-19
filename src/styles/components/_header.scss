@@ -17,12 +17,19 @@
     }
 
     &--right {
-
+        display: flex;
+        justify-content: space-between;
     }
 
     &__icon {
+
         transform: scale(1.6);
+        &--flag {
+            border: 1px solid #f4f4f4;
+            border-radius: 50%;
+        }
     }
+    
 
     &__link {
         color: #34495e;

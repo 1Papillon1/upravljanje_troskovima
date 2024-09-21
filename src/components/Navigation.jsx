@@ -2,6 +2,7 @@ import React from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CategoryIcon from '@mui/icons-material/Category';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 
 
@@ -30,6 +31,13 @@ export default function Navigation()
                         <a className="link link--navigation" href="/statistika">
                         <CategoryIcon className="link__icon" />
                         <span className="link__text">Statistika</span>
+                        </a>
+                        
+                    </li>
+                    <li className="list__item">
+                        <a className="link link--navigation" href="/postavke">
+                        <SettingsIcon className="link__icon" />
+                        <span className="link__text">Postavke</span>
                         </a>
                         
                     </li>

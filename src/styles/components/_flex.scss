@@ -1,0 +1,42 @@
+/*
+    flex.scss
+*/
+
+.flex {
+    
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &__box {
+        width: 30vw;
+        padding: 1rem;
+        background-color: #f4f4f9;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+        border: 1px solid #34495e;
+        border-radius: 5px;
+    }
+
+    &--centered {
+        justify-content: center;
+        align-items: center; 
+        height: 100vh;
+    }
+
+    &__block {
+        flex: 1;
+        padding: 1rem;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        h3 {
+            font-size: 1.25rem;
+            color: #333;
+        }
+        p {
+            font-size: 1rem;
+            color: #555;
+        }
+    }
+}

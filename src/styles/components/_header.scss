@@ -12,21 +12,22 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     
-    &--left {
-
-    }
-
+   
     &--right {
-        display: flex;
-        justify-content: space-between;
+        width: 100px;
     }
 
     &__icon {
 
         transform: scale(1.6);
+
+        height: auto;
         &--flag {
-            border: 1px solid #f4f4f4;
-            border-radius: 50%;
+            width: 1.3em;
+            height: 1.3em;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     

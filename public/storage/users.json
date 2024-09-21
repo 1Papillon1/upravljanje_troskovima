@@ -1,0 +1,7 @@
+{
+    "users": [
+      { "id": 1, "name": "Tin","email": "tin@mailinator.com", "password": "$2y$10$iIs8VOqUamp4vozh6r0oM.SIjcS9ziUMHdibn62rQJ.pRhGUJpTUu" },
+      { "id": 2, "name": "Ivan","email": "ivan@mailinator.com", "password": "$2y$10$iIs8VOqUamp4vozh6r0oM.SIjcS9ziUMHdibn62rQJ.pRhGUJpTUu" }
+
+    ]
+}

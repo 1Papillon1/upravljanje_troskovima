@@ -14,6 +14,7 @@ import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Layout from './components/Layout';
 import "./styles/_app.scss";
+import SettingsPath from './routes/SettingsPath';
 
 /*
 Root provjerava da li je korisnik ulogiran ili nije
@@ -25,7 +26,7 @@ Ako nije redirecta na /login
 const router = createBrowserRouter([
   { 
     path: "/login", 
-    element: <AuthPath /> // Autentifikacija van glavnih ruta 
+    element: <AuthPath /> 
   },
   { 
     path: "/", 
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       { path: "/pocetna", element: <HomePath /> }, 
       { path: "/troskovi", element: <ExpensesPath /> },
       { path: "/statistika", element: <StatisticsPath /> },
+      { path: "/postavke", element: <SettingsPath /> },
     ],
   },
   

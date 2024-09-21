@@ -8,7 +8,7 @@ export default function BasicTable()
     const [expenses, setExpenses] = useState([]);
 
     useEffect(() => {
-        fetch('./storage/localStorage.json')
+        fetch('./storage/expenses.json')
             .then((response) => response.json())
             .then((data) => {
                 setExpenses(data.expenses);

@@ -1,0 +1,51 @@
+/*
+    form.scss
+*/
+
+.form {
+    &__title {
+        text-align: center;
+        margin-bottom: 2rem; 
+        font-size: 1.5rem;
+        color: #34495e; 
+    }
+
+    &__label {
+        display: block; 
+        margin-bottom: 0.5rem; 
+        font-size: 1rem;
+        color: #333; 
+    }
+
+    &__input {
+        width: 100%; 
+        padding: 0.75rem; 
+        margin-bottom: 1rem; 
+        border: 1px solid #ccc; 
+        border-radius: 4px;
+        box-sizing: border-box;
+        &--secondary {
+            width: 30%;
+            display: block;
+        }
+    }
+
+    &__submit {
+        width: 100%; 
+        padding: 0.75rem; 
+        border: none; 
+        border-radius: 4px;
+        background-color: #007bff; 
+        color: white; 
+        font-size: 1rem; 
+        cursor: pointer; 
+        transition: background-color 0.3s;
+        &--secondary {
+            width: 30%;
+        }
+
+        &:hover {
+            background-color: #0056b3; 
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "expenses": [
+      { "id": 1, "name": "Kupovina laptopa", "price": 600 },
+      { "id": 2, "name": "Kupovina patika", "price": 80 },
+      { "id": 3, "name": "Plaćanje najamnine", "price": 320 }
+    ]
+}

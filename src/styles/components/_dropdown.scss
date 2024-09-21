@@ -1,0 +1,48 @@
+/*
+    dropdown.scss
+*/
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute; 
+    right: 34px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2; 
+    margin: 0;
+    padding: 0;
+    margin-top: 2rem; 
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+        transition: background-color 0.2s;
+        font-weight: bold;
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+
+    &__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+        
+    }
+
+    &__label {
+        font-size: 0.875rem;
+        color: #333;
+    }
+}

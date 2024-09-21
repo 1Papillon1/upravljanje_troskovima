@@ -1,0 +1,70 @@
+/*
+    sections.scss
+*/
+
+@import "../base/variables";
+
+
+.section {
+    padding: 1rem;
+    font-family: $primaryFont;
+    background-color: #f4f4f9; 
+
+    &__header {
+        margin-bottom: 1.5rem;
+
+        
+    }
+
+    &__title {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 2rem;
+        font-family: $primaryFont;
+        text-align: right;
+        color: #34495e;
+    }
+
+    &__content {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    &__article {
+        margin: 1.5rem 0;
+        h2 {
+            font-size: 1.75rem;
+            color: #333;
+        }
+        .section__article__block {
+            margin-bottom: 1rem;
+            h3 {
+                font-size: 1.5rem;
+                color: #222;
+            }
+            p {
+                font-size: 1rem;
+                color: #666;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    &__footer {
+        text-align: center;
+        margin-top: 2rem;
+        h2 {
+            font-size: 1.75rem;
+            color: #333;
+        }
+        
+    }
+
+    &__link {
+        margin-top: 1rem;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

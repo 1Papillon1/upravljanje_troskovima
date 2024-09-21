@@ -1,0 +1,16 @@
+{
+    "categories": [
+        { "id": 1, "name": "Štednja i ulaganje" },
+        { "id": 2, "name": "Obrazovanje" },
+        { "id": 3, "name": "Stanovanje i režije" },
+        { "id": 4, "name": "Namještaj" },
+        { "id": 5, "name": "Prehrana" },
+        { "id": 6, "name": "Telefonski uređaji" },
+        { "id": 7, "name": "Prijevoz" },
+        { "id": 8, "name": "Zdravlje" },
+        { "id": 9, "name": "Osiguranje" },
+        { "id": 10, "name": "Otplata dugova" },
+        { "id": 11, "name": "Odjeća i obuća" },
+        { "id": 12, "name": "Kultura i rekreacija" }
+      ]
+}

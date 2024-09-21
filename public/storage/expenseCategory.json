@@ -1,0 +1,7 @@
+{
+    "expenseCategoryLink": [
+      { "id": 1, "expenseId": 1, "categoryId": 4 }, 
+      { "id": 2, "expenseId": 2, "categoryId": 11 }, 
+      { "id": 3, "expenseId": 3, "categoryId": 3 }
+    ]
+}

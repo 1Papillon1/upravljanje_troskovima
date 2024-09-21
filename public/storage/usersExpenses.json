@@ -1,0 +1,7 @@
+{
+    "usersExpensesLink": [
+      { "id": 1, "expenseId": 1, "userId": 1},
+      { "id": 1, "expenseId": 2, "userId": 1},
+      { "id": 1, "expenseId": 3, "userId": 1}
+    ]
+}

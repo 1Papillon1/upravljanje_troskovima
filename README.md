@@ -36,6 +36,7 @@
 - Otvorite terminal u Visual Studio Code-u (pomoću `Ctrl + \``).
 - Unesite naredbu: `node -v` da biste provjerili je li Node.js uspješno instaliran i vidjeli trenutnu verziju.
 - Unesite naredbu: `npm -v` da biste provjerili instalaciju NPM-a i prikazali trenutnu verziju.
+- verzija Node-a: v21.7.3 
 
 ## 4. Ažuriranje NPM-a
 
@@ -56,3 +57,6 @@
   ```bash
   npx create-react-app upravljanje-troskovima
 
+## 3. Dodaci
+
+- npm install

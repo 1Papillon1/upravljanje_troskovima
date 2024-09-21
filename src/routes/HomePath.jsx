@@ -1,9 +1,14 @@
 import React from "react";
+import { observer } from "mobx-react";
+import { useEffect } from "react";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import { Link } from "react-router-dom";
+import store from "../store/Store";
 
-export default function HomePath() {
+const HomePath = observer(() =>  {
+
+ 
 
     return (
       <>
@@ -50,4 +55,6 @@ export default function HomePath() {
           }/>
       </>
     );
-  }
+});
+
+export default HomePath;

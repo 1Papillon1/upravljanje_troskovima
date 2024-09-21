@@ -5,6 +5,7 @@ import {
   RouterProvider,
   useLocation,
 } from "react-router-dom";
+import { Provider } from "mobx-react";
 import Root from './routes/Root';
 import AuthPath from './routes/AuthPath';
 import HomePath from './routes/HomePath';
@@ -15,6 +16,7 @@ import Header from './components/Header';
 import Layout from './components/Layout';
 import "./styles/_app.scss";
 import SettingsPath from './routes/SettingsPath';
+import store from "./store/Store";
 
 /*
 Root provjerava da li je korisnik ulogiran ili nije
@@ -28,13 +30,9 @@ const router = createBrowserRouter([
     path: "/login", 
     element: <AuthPath /> 
   },
-  { 
-    path: "/", 
-    element: <Root /> // Za redirect 
-  },
   {
     path: "/",
-    element: <Layout />,
+    element: <Root />,
     children: [
       { path: "/pocetna", element: <HomePath /> }, 
       { path: "/troskovi", element: <ExpensesPath /> },
@@ -47,7 +45,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

@@ -13,6 +13,7 @@
     &__label {
         display: block; 
         margin-bottom: 0.5rem; 
+        margin-top: 1rem;
         font-size: 1rem;
         color: #333; 
     }
@@ -20,15 +21,16 @@
     &__input {
         width: 100%; 
         padding: 0.75rem; 
-        margin-bottom: 1rem; 
         border: 1px solid #ccc; 
         border-radius: 4px;
         box-sizing: border-box;
+        
         &--secondary {
             width: 30%;
             display: block;
         }
     }
+    
 
     &__submit {
         width: 100%; 
@@ -38,6 +40,7 @@
         background-color: #007bff; 
         color: white; 
         font-size: 1rem; 
+        margin-top: 2rem;
         cursor: pointer; 
         transition: background-color 0.3s;
         &--secondary {
@@ -47,5 +50,10 @@
         &:hover {
             background-color: #0056b3; 
         }
+    }
+
+    &__error {
+        color: red;
+        padding: 0.2rem 0;
     }
 }

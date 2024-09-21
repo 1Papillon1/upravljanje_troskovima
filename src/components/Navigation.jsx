@@ -3,12 +3,20 @@ import HomeIcon from '@mui/icons-material/Home';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CategoryIcon from '@mui/icons-material/Category';
 import SettingsIcon from '@mui/icons-material/Settings';
+import store from "../store/Store";
+import { useNavigate } from "react-router-dom";
+import { observer } from "mobx-react";
 
 
+const Navigation = observer(() => {
 
-export default function Navigation() 
-{
+    const navigate = useNavigate();
 
+    const logoutUser = () => {
+        store.userStore.logoutUser();
+        navigate('/login');
+    }
+    
     return(
         <div className="sidebar">
             <div className="navigation">
@@ -44,7 +52,7 @@ export default function Navigation()
 
                     <li className="list__item">
                         <a className="link link--navigation" href="/login">
-                        <span className="link__text">Odjava</span>
+                        <span className="link__text" onClick={logoutUser}>Odjava</span>
                         </a>
                         
                     </li>
@@ -52,4 +60,6 @@ export default function Navigation()
             </div>
         </div>
     )
-}
+});
+
+export default Navigation;

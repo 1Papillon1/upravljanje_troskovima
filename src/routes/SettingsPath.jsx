@@ -1,9 +1,10 @@
 import React from "react";
 import Card from "../components/Card";
 import Form from "../components/Form";
+import { observer } from "mobx-react";
 
 
-export default function SettingsPath() {
+const SettingsPath = observer(() =>  {
 
     return (
         <>
@@ -44,4 +45,6 @@ export default function SettingsPath() {
             }/>
         </>
     )
-}
+});
+
+export default SettingsPath;

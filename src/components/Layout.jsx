@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
@@ -8,9 +8,10 @@ import {
     useLocation,
     Outlet,
   } from "react-router-dom";
+import { observer } from "mobx-react";
 
-export default function Layout({  }) 
-{
+const Layout = observer(() => {
+
     
     
 
@@ -22,4 +23,6 @@ export default function Layout({  })
             <Footer />
         </div>
     )
-}
+})
+
+export default Layout;

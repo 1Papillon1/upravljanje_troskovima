@@ -1,28 +1,18 @@
 import React from "react";
 import Table from '@mui/joy/Table';
 import { useState, useEffect } from "react";
+import { observer } from "mobx-react";
+import store from "../store/Store";
 
 
-export default function BasicTable() 
-{
-    const [expenses, setExpenses] = useState([]);
 
-    useEffect(() => {
-        fetch('./storage/expenses.json')
-            .then((response) => response.json())
-            .then((data) => {
-                setExpenses(data.expenses);
-            })
-            .catch((error) => {
-                console.error("Fetching JSON data failed:", error);
-            })
-    }, []);
-    
+const BasicTable = observer(() =>  {
+
     
 
     return (
     <>
-        {expenses.length > 0 ? (
+        {store.expensesStore.expenses.length > 0 ? (
         <Table className="table" aria-label="basic table" sx={{ '& tr > *:is(:last-child)': { textAlign: 'right' } }}>
         <thead className="table__head">
           <tr className="table__row">
@@ -33,7 +23,7 @@ export default function BasicTable()
         </thead>
         <tbody>
 
-        {expenses.map((expense) => {
+        {store.expensesStore.expenses.map((expense) => {
             return(
                 <tr className="table__row" key={expense.id}>
                     <td className="table__data">{expense.id}</td>
@@ -52,4 +42,6 @@ export default function BasicTable()
     )}
       </>
     )
-}
+});
+
+export default BasicTable;

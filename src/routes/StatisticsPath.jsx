@@ -4,9 +4,10 @@ import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import { BarChart } from '@mui/x-charts/BarChart';
 import { PieChart } from "@mui/x-charts/PieChart";
+import { observer } from "mobx-react";
 
 
-export default function StatisticsPath() {
+const StatisticsPath = observer(() =>  {
   const [expenses, setExpenses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [expenseCategoryLink, setExpenseCategoryLink] = useState([]);
@@ -92,4 +93,6 @@ export default function StatisticsPath() {
       } />
     </>
   );
-  }
+  });
+
+  export default StatisticsPath;

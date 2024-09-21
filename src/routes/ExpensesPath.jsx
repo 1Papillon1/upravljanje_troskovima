@@ -2,8 +2,12 @@ import React from "react";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import Table from "../components/BasicTable";
+import { observer } from "mobx-react";
+import store from "../store/Store";
 
-export default function ExpensesPath() {
+const ExpensesPath = observer(() =>  {
+
+ 
 
 
     return (
@@ -11,4 +15,6 @@ export default function ExpensesPath() {
         <Card content={<Table />}/>
       </>
     );
-}
+});
+
+export default ExpensesPath;

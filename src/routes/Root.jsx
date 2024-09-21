@@ -1,10 +1,28 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
+import { observer, inject } from "mobx-react";
+import { runInAction } from "mobx";
+import { useNavigate } from "react-router-dom";
+import store from "../store/Store";
 
-export default function Root() {
+
+const Root = observer(() =>  {
+
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+        if (!store.userStore.authenticatedUser) {
+          navigate("/login");
+        } 
+  },[])
+  
     return (
       <>
-        
+        <Layout />
       </>
     );
-  }
+  });
+
+export default Root;

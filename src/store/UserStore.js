@@ -83,8 +83,10 @@ class UserStore {
     }
 
     logoutUser() {
-        this.authenticatedUser = null;
         localStorage.removeItem("authUser");
+
+        this.authenticatedUser = null;
+        
        
     }
 

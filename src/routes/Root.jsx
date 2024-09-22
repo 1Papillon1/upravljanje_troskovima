@@ -16,6 +16,7 @@ const Root = observer(() =>  {
         if (!store.userStore.authenticatedUser) {
           navigate("/login");
         } 
+        console.log(store.userStore.authenticatedUser);
   },[])
   
     return (

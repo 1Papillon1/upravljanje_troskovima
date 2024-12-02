@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../components/Layout";
 import Form from "../components/Form";
 import { observer } from "mobx-react";
-import store from "../store/Store";
-import { useNavigate } from "react-router-dom";
+import store from "../store/RootStore";
 
 
 
-const AuthPath = observer(() =>  {
+
+const AuthPath = observer(() =>   {
+
+
+
+  const routerStore = store.routerStore;
+
+
+  
+  const userStore  = store.userStore;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+
 
  
   
@@ -20,17 +27,20 @@ const AuthPath = observer(() =>  {
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      store.userStore.validateUser(email, password);
+      userStore.validateUser(email, password);
       
-      const userAuthorized = store.userStore.authenticatedUser;
-
-      if (!userAuthorized) {
+      const userAuthorized = userStore.authenticatedUser;
+     
+    if (!userAuthorized) {
         setError('Korisnički podaci nisu točni!');
+     
       } else {
+        store.routerStore.goTo('pocetna');
         setError('');
-        navigate('/pocetna');
+
         console.log('Korisnik uspješno prijavljen.');
-      }
+       
+      } 
     }
 
 
@@ -70,6 +80,6 @@ const AuthPath = observer(() =>  {
         </div>
       </div>
     );
-  });
+  })
 
-export default AuthPath;
+  export default AuthPath; 

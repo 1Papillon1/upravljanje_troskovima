@@ -1,0 +1,29 @@
+/*
+    table.scss
+*/
+
+.table {
+    
+
+
+    &__heading {
+        &--group {
+            width: 20px;
+        }
+
+    }
+
+
+    &__data {
+        &--group {
+
+            width: 20px;
+        }
+    }
+
+    &__button {
+        &:hover {
+            cursor:pointer;
+        }
+    }
+}

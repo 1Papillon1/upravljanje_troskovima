@@ -1,7 +1,12 @@
 import React from "react";
+import store from "../store/RootStore";
+import { observer } from "mobx-react";
 
-export default function Footer() 
-{
+const Navigation = observer(() =>   {
+
+    const routerStore = store.routerStore;
+    
+
     return(
         <div className="footer">
             <div className="footer__content">
@@ -10,4 +15,6 @@ export default function Footer()
             </div>
         </div>
     )
-}
+})
+
+export default Navigation;

@@ -10,5 +10,14 @@
         display: flex;
         justify-content: space-between;
     }
+    &--item {
+        &:hover {
+            cursor: pointer;
+        }
+        &--secondary {
+            display: flex;
+            gap: 2rem;
+        }
+    }
     
 }

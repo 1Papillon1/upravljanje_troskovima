@@ -3,17 +3,20 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Person } from "@mui/icons-material";
 import { CircleFlag } from 'react-circle-flags'
+import { observer } from "mobx-react";
+import store from "../store/RootStore";
 
 
 
-export default function Header() 
+const Header = observer(() => 
 {   
     const [currentRoute, setCurrentRoute] = useState('Početna');
     const [currentFlag, setCurrentFlag] = useState('cro');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    const location = useLocation();
-    const route = location.pathname;
+
+    const routerStore = store.routerStore;
+    const authUser = store.userStore.authenticatedUser;
     
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -26,14 +29,15 @@ export default function Header()
     
 
     useEffect(() => {
-        if (route == '/') {
+     
+        if (routerStore.routerState.routeName == 'pocetna') {
             setCurrentRoute('Početna');
-        } else if (route == '/troskovi') {
+        } else if (routerStore.routerState.routeName == 'troskovi') {
             setCurrentRoute('Troškovi');
     
-        } else if (route == '/statistika') {
+        } else if (routerStore.routerState.routeName == 'statistika') {
             setCurrentRoute('Statistika');
-        }  else if (route == '/postavke') {
+        }  else if (routerStore.routerState.routeName == 'postavke') {
             setCurrentRoute('postavke');
         }
     },[])
@@ -46,12 +50,14 @@ export default function Header()
     return(
         <div className="header">
             <div className="header--left">
-                <a className="header__link" href={route}>{currentRoute}</a> /
+                <a className="header__link" href="#">{routerStore.routerState.routeName}</a> 
             </div>
 
             <div className="header--right">
                 <ul className="list list--horizontal">
-                    <li className="list--item">
+                    <li className="list--item list--item--secondary">
+                        <span className="header__span">Hi, {authUser.name}</span>
+                    
                         <Person className="header__icon"/>
                     </li>
                     <li className="list--item" onClick={toggleDropdown}>
@@ -77,4 +83,6 @@ export default function Header()
             </div>
         </div>
     )
-}
+})
+
+export default Header;

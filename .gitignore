@@ -13,6 +13,8 @@
 
 /assets
 
+/storage
+
 # misc
 .DS_Store
 .env.local

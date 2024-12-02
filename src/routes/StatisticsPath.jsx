@@ -7,7 +7,8 @@ import { PieChart } from "@mui/x-charts/PieChart";
 import { observer } from "mobx-react";
 
 
-const StatisticsPath = observer(() =>  {
+
+const StatisticsPath = observer(() =>   {
   const [expenses, setExpenses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [expenseCategoryLink, setExpenseCategoryLink] = useState([]);

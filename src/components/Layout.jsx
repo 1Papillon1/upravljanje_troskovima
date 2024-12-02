@@ -9,9 +9,12 @@ import {
     Outlet,
   } from "react-router-dom";
 import { observer } from "mobx-react";
+import store from '../store/RootStore';
 
-const Layout = observer(() => {
+// children poziva path view
+const Layout = observer(({children}) => {
 
+    
     
     
 
@@ -19,10 +22,11 @@ const Layout = observer(() => {
         <div className="layout">
             <Header />
             <Navigation />
-            <Outlet /> 
-            <Footer />
+            {children}
+            <Footer /> 
         </div>
     )
 })
+
 
 export default Layout;

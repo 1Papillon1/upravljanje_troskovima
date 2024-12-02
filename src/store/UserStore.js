@@ -1,15 +1,20 @@
-import { autorun, makeAutoObservable, runInAction } from "mobx";
+import { autorun, makeAutoObservable, runInAction, computed } from "mobx";
+import expensesStore from "./ExpensesStore";
 
+const bcrypt = require('bcryptjs');
 
 class UserStore {
-    store;
+
     
+    
+    // observable
     users=[];
     loadingUsers = false;
     errorUsers = null;
     authenticatedUser = null;
     usersExpensesLink = [];
 
+    // action
     async fetchUsers() {
         this.loading = true;
         try {
@@ -21,6 +26,7 @@ class UserStore {
             runInAction(() => {
                 this.users = data.users;
                 this.loading = false;
+                
             });
             
         } catch (error) {
@@ -35,6 +41,7 @@ class UserStore {
         
     }
 
+    // action
     async fetchUserExpensesLink() {
         this.loading = true;
         try {
@@ -70,7 +77,7 @@ class UserStore {
         this.rememberUser();
     }
 
-    
+    // action
     rememberUser() {
         const loggedUser = localStorage.getItem("authUser");
         
@@ -82,34 +89,47 @@ class UserStore {
         }
     }
 
+    // action
     logoutUser() {
-        localStorage.removeItem("authUser");
 
         this.authenticatedUser = null;
-        
+        console.log("Korisnik se odjavio.");
        
     }
 
+    // action
     validateUser(email, password) {
-        const userWithMail = this.users.find(user => user.email === email)
-        let bcrypt = require('bcryptjs');
+        
+       const userWithMail = this.users.find(user => user.email === email)
+        
 
         if (userWithMail) {
             try {
-            const passwordMatches = bcrypt.compareSync(password, userWithMail.password);
+                const passwordMatches = bcrypt.compareSync(password, userWithMail.password);
+           
+                // const passwordMatches = await verify({pass: password, encoded: userWithMail.password})
                 if (passwordMatches) {
-                    localStorage.setItem("authUser", JSON.stringify(userWithMail));
+                  
                     this.authenticatedUser = userWithMail;
 
                     console.log("Logged in as: " + this.authenticatedUser.name );
+                    expensesStore.fetchExpenses();
+     
                 }
             } catch(error) {
                 console.error(error);
+                
             }
-        }
+        } else {
+            this.authenticatedUser = null;
+        } 
+    }
+
+    // computed
+    get numberOfUsers() {
+        return this.users.length;
     }
 
 }
 
-const userStore = new UserStore();
-export default userStore;
+export default UserStore;

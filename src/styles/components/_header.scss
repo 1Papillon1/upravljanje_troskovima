@@ -14,7 +14,7 @@
     
    
     &--right {
-        width: 100px;
+        width: 200px;
     }
 
     &__icon {
@@ -37,5 +37,10 @@
         font-size: 14px;
         font-weight: bold;
         text-decoration: none;
+    }
+
+    &__span {
+        font-size: 24px;
+        font-weight: bold;
     }
 }

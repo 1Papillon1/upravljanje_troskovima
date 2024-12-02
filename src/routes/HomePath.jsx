@@ -3,12 +3,15 @@ import { observer } from "mobx-react";
 import { useEffect } from "react";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
-import { Link } from "react-router-dom";
-import store from "../store/Store";
+import store from "../store/RootStore";
 
-const HomePath = observer(() =>  {
 
- 
+
+
+const HomePath = observer(() =>   {
+    const routerStore = store.routerStore;
+
+  
 
     return (
       <>
@@ -25,7 +28,7 @@ const HomePath = observer(() =>  {
                     kategoriziranja troškova, kako bi dobili uvid u to, kolika im je potrošnja 
                     za određeni period. Grafičkim prikazima, korisnici dobivaju pregled usporenih vrijednosti 
                     svih kategorija koje sadrže troškove. Za jezgru aplikacije, te upravljanje cijelim state-om 
-                    koristi se MobX, koji povezuje cijeli aplikaciju i komponente u svrhu dinamičkog upravljanja 
+                    koristi se MobX, koji povezuje cijelu aplikaciju i komponente u svrhu dinamičkog upravljanja 
                     i organizacije svih elemenata koji su potrebni.</p>
               </header>
 
@@ -49,12 +52,12 @@ const HomePath = observer(() =>  {
 
               <article className="section__footer">
                   
-                  <Link to="/troskovi" className="section__link">Pregled troškova</Link>
+                 {/*  <Link to="/troskovi" className="section__link">Pregled troškova</Link> */}
               </article>
           </section>
           }/>
       </>
     );
-});
+}) 
 
 export default HomePath;

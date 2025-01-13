@@ -2,8 +2,7 @@ import { RouterStore, createRouterState, browserHistory, HistoryAdapter } from '
 import UserStore from './UserStore';
 import ExpensesStore from './ExpensesStore';
 
-
-
+// definiranje ruta
 const routes = [
     { name: 'login', pattern: '/login' },
     { name: 'pocetna', pattern: '/pocetna' },
@@ -13,13 +12,13 @@ const routes = [
 ];
 
 class RootStore {
-
-
     constructor() {
         this.userStore = new UserStore(this);
         this.expensesStore = new ExpensesStore(this);
 
-        this.routerStore = new RouterStore(routes, this, createRouterState('login')); 
+        const initialRoute = this.userStore.authenticatedUser ? 'pocetna' : 'login';
+        this.routerStore = new RouterStore(routes, this, createRouterState(initialRoute));
+
         this.historyAdapter = new HistoryAdapter(this.routerStore, browserHistory);
         this.historyAdapter.observeRouterStateChanges();
     }

@@ -8,6 +8,7 @@ import store from "../store/RootStore";
 
 
 
+
 const HomePath = observer(() =>   {
     const routerStore = store.routerStore;
 
@@ -52,7 +53,7 @@ const HomePath = observer(() =>   {
 
               <article className="section__footer">
                   
-                 {/*  <Link to="/troskovi" className="section__link">Pregled troškova</Link> */}
+            
               </article>
           </section>
           }/>

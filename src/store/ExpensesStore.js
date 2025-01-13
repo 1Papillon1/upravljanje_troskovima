@@ -13,6 +13,10 @@ class ExpensesStore {
     loadingExpenses = false;
     errorExpenses = null;
 
+    maximumExpenses = 5;
+    storeMessage = null;
+    priceChangeMessage = null;
+
     // action
     async fetchExpensesCategories() {
         this.loading = true;
@@ -23,7 +27,9 @@ class ExpensesStore {
              
   
             const authenticatedUser = store.userStore.authenticatedUser;
-            
+
+          
+          
   
               const userExpenses = data.expenses.filter(expense => {
                   return store.userStore.usersExpensesLink.some(
@@ -50,106 +56,102 @@ class ExpensesStore {
 
     // action
     async fetchExpenses() {
+        if (this.expenses.length > 0) {
+            console.log("Expenses already loaded.");
+            return;
+        }
+    
         this.loading = true;
-        const response = await fetch("./storage/expenses.json");
-            const data = await response.json();
-            
-        
-      try { 
-            const response = await fetch("./storage/expenses.json");
-            const data = await response.json();
-           
-
-          const authenticatedUser = store.userStore.authenticatedUser;
-          
-
+    
+        try {
+            const expensesResponse = await fetch("./storage/expenses.json");
+            const expensesData = await expensesResponse.json();
+    
+            const usersExpensesResponse = await fetch("./storage/usersExpenses.json");
+            const usersExpensesData = await usersExpensesResponse.json();
+    
+            const authenticatedUser = this.store.userStore.authenticatedUser;
             if (!authenticatedUser) {
-                throw new Error("Korisnik trenutno nije ulogiran");
-                
-            } else { 
-
-        
-
-            const userExpenses = data.expenses.filter(expense => {
-                return store.userStore.usersExpensesLink.some(
-                    link => link.userId === authenticatedUser.id && link.expenseId === expense.id
-                );
-
-            }) 
-            runInAction(() => {
-                this.expenses = userExpenses ?? [];
-                this.loading = false;
-                console.log(this.expenses);
-            });
-            console.log(this.expenses);
+                throw new Error("Nema autentifikovanog korisnika.");
             }
-          
-         } catch (error) {
+    
+            const userExpenseLinks = usersExpensesData.usersExpensesLink.filter(
+                link => link.userId === authenticatedUser.id
+            );
+    
+            const userExpenses = expensesData.expenses.filter(expense =>
+                userExpenseLinks.some(link => link.expenseId === expense.id)
+            );
+    
+            runInAction(() => {
+                this.expenses = userExpenses;
+                this.loading = false;
+            });
+        } catch (error) {
             runInAction(() => {
                 this.error = "Pogreška prilikom dohvaćanja troškova.";
                 this.loading = false;
-            })
+            });
+            console.error(error);
         }
-        
-     } 
+    }
 
     constructor(store) {
         this.store = store;
         makeAutoObservable(this);
         
-                
+        autorun(() => {
+            if (this.expenses.length >= 5) {
+                runInAction(() => {
+                    this.storeMessage = "You have reached the maximum number of expenses.";
+
+                })
+            } else {
+                runInAction(() => {
+                    this.storeMessage = null;
+                })
+            }
+        });
   
+        
 
     }
 
-    get currentUserExpenses() {
-
-        return this.expenses;
-
-       
+    get logUserExpenses() {
+        console.log(this.expenses);
     }
 
-    // create, edit, delete
+    get totalPriceOfExpenses() {
+        return this.expenses.reduce((total, expense) => total + expense.price, 0);
+    }
+
+ 
+
+    // (actions) create, edit, delete
     async createExpense(name, price, categoryId) {
-
-
+       
         try {
-            const expenseId = this.expenses.length > 0 ? Math.max(this.expenses.map(expense => expense.id)) + 1 : 1;
-
+            const expenseId = this.expenses.length > 0 
+                ? this.expenses[this.expenses.length - 1].id + 1
+                : 1;
+    
             const expense = {
                 id: expenseId,
                 name,
                 price
-    
             };
-
-            const expenseUserLinkId = store.userStore.usersExpensesLink.length > 0 ? Math.max(store.userStore.usersExpensesLink.map(userExpense => userExpense.id)) + 1 : 1; 
-
-            const expenseUserLink = {
-                id: expenseUserLinkId,
-                expenseId: expenseId,
-                userId: store.userStore.authenticatedUser.id,
-            }
-
-            const expenseCategoryLinkId = this.expensesCategories.length > 0 ? Math.max(this.expensesCategories.map(expenseCategory => expenseCategory.id)) + 1 : 1;
-
-            const expenseCategoryLink = {
-                id: expenseCategoryLinkId,
-                expenseId: expenseId,
-                categoryId
-            }
-
+    
+           
+    
+           
             runInAction(() => {
                 this.expenses.push(expense);
-                store.userStore.usersExpensesLink.push(expenseUserLink);
-                this.expensesCategories.push(expenseCategoryLink);
-            })
-
-        } catch(error) {
-            console.error(error)
+            
+              });
+    
+        } catch (error) {
+            console.error(error);
         }
-
-        
     }
 
     async editExpense(id) {
@@ -191,6 +193,10 @@ class ExpensesStore {
   
                     this.expense = null;
                 });
+
+
+                
+
             } else {
                 console.error(`Expense with id ${id} not found.`);
             }
@@ -209,8 +215,16 @@ class ExpensesStore {
         }
     }
     
-
     
 
+
 }
+
+
+
+
+
+
+
+
 export default ExpensesStore;

@@ -26,6 +26,7 @@ const AuthPath = observer(() =>   {
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      console.log(email, password);
 
       userStore.validateUser(email, password);
       

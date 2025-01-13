@@ -53,44 +53,7 @@ const Navigation = observer(() =>   {
     </li>
 </ul>
 
-                {/* <ul className="list">
-                    <li className="list__item">
-                        <a className="link link--navigation">
-                        <HomeIcon className="link__icon" />
-                        <span className="link__text" onClick={changeRoute("pocetna")}>Početna</span>
-                        </a>
-                        
-                    </li>
-                    <li className="list__item">
-                        <a className="link link--navigation">
-                        <AttachMoneyIcon className="link__icon" />
-                        <span className="link__text" onClick={changeRoute("troskovi")}>Troškovi</span>
-                        </a>
-                    </li>
-                
-                 
-                    <li className="list__item">
-                        <a className="link link--navigation">
-                        <CategoryIcon className="link__icon" />
-                        <span className="link__text" onClick={changeRoute("statistika")}>Statistika</span>
-                        </a>
-                        
-                    </li>
-                    <li className="list__item">
-                        <a className="link link--navigation">
-                        <SettingsIcon className="link__icon" />
-                        <span className="link__text" onClick={changeRoute("postavke")}>Postavke</span>
-                        </a>
-                        
-                    </li>
-
-                    <li className="list__item">
-                        <a className="link link--navigation">
-                        <span className="link__text" onClick={logoutUser}>Odjava</span>
-                        </a>
-                        
-                    </li>
-                </ul> */}
+               
             </div>
         </div>
     )

@@ -60,5 +60,9 @@
     &__group {
         display: flex;
         justify-content: space-between;
+
+        &--column {
+            display: block;
+        }
     }
 }

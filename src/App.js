@@ -9,7 +9,6 @@ import SettingsPath from './routes/SettingsPath';
 import store from './store/RootStore';
 import Layout from './components/Layout';
 
-
 const views = {
     login: <AuthPath />,
     pocetna: <Layout><HomePath /></Layout>,
@@ -19,22 +18,19 @@ const views = {
 };
 
 const App = observer(() => {
-    
-  // dohvaćanje trenutne rute
+    const { routerState } = store.routerStore;
+    const { authenticatedUser } = store.userStore;
 
- const currentRoute = store.routerStore.routerState;
-
-
-
-  // provjera trenutne rute za integriranje Layout komponente
-  const layoutContains = ['pocetna', 'troskovi', 'statistika', 'postavke'].includes(currentRoute.routeName);
-
+    // Redirect if unauthenticated
+    useEffect(() => {
+        if (!authenticatedUser && routerState.routeName !== 'login') {
+            store.routerStore.goTo('login');
+        }
+    }, [authenticatedUser, routerState.routeName]);
 
     return (
-    <>
-      <RouterView routerStore={store.routerStore} viewMap={views} />
-    </>
-    )
-  });
+        <RouterView routerStore={store.routerStore} viewMap={views} />
+    );
+});
 
 export default App;

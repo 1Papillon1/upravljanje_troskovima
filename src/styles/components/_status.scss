@@ -3,10 +3,28 @@
 */
 
 .status {
-    padding: 2rem 1rem;
+    padding: 3rem 5%;
     background-color: palegoldenrod;
     color: #333333;
     font-weight: 600;
     border-radius: 5px;
     margin-bottom: 1rem;
+
+    &--success {
+        position: absolute;
+        bottom: 5rem;
+        width: 80%;
+        margin: 5%;
+        z-index: 3;
+        background-color: rgb(73, 216, 73); 
+        color: #fff;
+        font-size: 18px;
+        animation: fadeOut 5s ease-in-out forwards;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
 }

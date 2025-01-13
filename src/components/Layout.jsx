@@ -24,7 +24,12 @@ const Layout = observer(({ children }) => {
   }
 
   return (
+    <>
+    <div class="status status--success">
+        <span class="status__text">Uspješno ste se prijavili.</span>
+      </div>
     <div className="layout">
+      
       <Navigation />
       <Header />
       <div className="layout__content">
@@ -32,6 +37,7 @@ const Layout = observer(({ children }) => {
       </div>
       <Footer />
     </div>
+    </>
   );
 });
 

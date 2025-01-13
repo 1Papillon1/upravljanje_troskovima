@@ -16,6 +16,7 @@
     "crypto-browserify": "^3.12.0",
     "material-ui-flags": "^1.2.4",
     "mobx": "^6.13.2",
+    "mobx-persist-store": "^1.1.5",
     "mobx-react": "^9.1.1",
     "mobx-state-router": "^6.0.1",
     "react": "^18.3.1",

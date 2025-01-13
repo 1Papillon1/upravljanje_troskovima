@@ -1,5 +1,6 @@
-import { makeAutoObservable, runInAction } from 'mobx';
+import { makeAutoObservable, runInAction, when } from 'mobx';
 import bcrypt from 'bcryptjs/dist/bcrypt';
+import store from "./RootStore";
 
 class UserStore {
 
@@ -8,12 +9,34 @@ class UserStore {
     authenticatedUser = null;
     loadingUsers = false;
     errorUsers = null;
+    isLoggedIn = false;
+    message = null;
 
     constructor(store) {
         this.store = store;
         makeAutoObservable(this);
         this.fetchUsers();
         this.rememberUser();
+
+        this.messageDispose = when (
+            () => this.isLoggedIn === true,
+
+            () => {
+                runInAction(() => {
+                    this.message = `Dobrodošli, ${this.authenticatedUser.name}!`;
+                })
+
+                const timeRemaining = setTimeout(() => {
+                    runInAction(() => {
+                        this.message = null;
+                    });
+
+                    this.messageDispose();
+                }, 5000);
+
+
+            }
+        )
     }
 
 
@@ -41,6 +64,7 @@ class UserStore {
         const loggedUser = localStorage.getItem('authUser');
         if (loggedUser) {
             this.authenticatedUser = JSON.parse(loggedUser);
+            this.isLoggedIn = true;
         }
     }
 
@@ -49,9 +73,11 @@ class UserStore {
         const user = this.users.find((u) => u.email === email);
         if (user && bcrypt.compare(password, user.password)) { 
             this.authenticatedUser = user;
+            this.isLoggedIn = true;
             localStorage.setItem('authUser', JSON.stringify(user));
         } else {
             this.authenticatedUser = null;
+            this.isLoggedIn = false;
         }
     }
 
@@ -59,6 +85,7 @@ class UserStore {
     // action
     logoutUser() {
         this.authenticatedUser = null;
+        this.isLoggedIn = false;
         localStorage.removeItem('authUser');
     }
 }

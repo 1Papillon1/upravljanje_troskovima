@@ -1,6 +1,6 @@
 {
     "users": [
-      { "id": 1, "name": "Tin","email": "tin@mailinator.com", "password": "$2y$10$gJUT/kr7qUMIOrAitl5EGOEm4lYnDOHbIwWz0d8bWFrRkbaoP.6rq" },
+      { "id": 1, "name": "Tin","email": "tin@mailinator.com", "password": "$2y$10$nHV4GjEdoiNHO.o2zyyE3e.qJamAyiyulLqNWT/iydBRWLAgZhSL2" },
       { "id": 2, "name": "Ivan","email": "ivan@mailinator.com", "password": "$2y$10$gJUT/kr7qUMIOrAitl5EGOEm4lYnDOHbIwWz0d8bWFrRkbaoP.6rq" },
       { "id": 3, "name": "Petar","email": "petar@mailinator.com", "password": "$2y$10$C2vxMRke.1tQvk3LTmJ.lu09zgWyNCkJNrEIf8A1yFPbweBDDSLby" }
 

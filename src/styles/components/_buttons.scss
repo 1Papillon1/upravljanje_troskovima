@@ -1,0 +1,18 @@
+/*
+    buttons.scss
+*/
+
+.button {
+    border: 0;
+    background-color: initial;
+    &--table {
+        width: 100%;
+        font-weight: bold;
+        font-size: 24px;
+        &:hover {
+            cursor: pointer;
+            background-color: #dadadabb;
+            transition: 0.3s;
+        }
+    }
+}

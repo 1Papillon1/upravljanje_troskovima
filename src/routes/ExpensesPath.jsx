@@ -47,7 +47,7 @@ const ExpensesPath = observer(() => {
 
   const handleSave = async () => {
     if (expense) {
-      console.log("Saving expense:", expense); 
+      console.log("Spremanje troška:", expense); 
       await expensesStore.updateExpense(expense.id, { name: expense.name, price: expense.price });
       setView('list'); 
     }
@@ -55,12 +55,12 @@ const ExpensesPath = observer(() => {
 
   const handleCreate = async () => {
     if (newExpense.name && newExpense.price && newExpense.categoryId) {
-      console.log("Creating expense:", newExpense); 
+      console.log("Stvaranje troška:", newExpense); 
       await expensesStore.createExpense(newExpense.name, parseFloat(newExpense.price), parseInt(newExpense.categoryId));
       setView('list');
       setNewExpense({ name: "", price: "", categoryId: "" });
     } else {
-      console.log("Invalid inputs for new expense:", newExpense);
+      console.log("Pogrešan input:", newExpense);
     }
   };
 
@@ -74,18 +74,7 @@ const ExpensesPath = observer(() => {
               {view === "list" ? (
                 <>
 
-              {expensesStore.storeMessage ? (
-                <div className="status status--message">
-                  {expensesStore.storeMessage}
-                </div>
-              ) : (
-                <button
-                  className="form__submit form__submit--primary"
-                  onClick={() => setView('create')}
-                >
-                  Dodaj Trošak
-                </button>
-              )}
+              
 
                   <Table
                     content={
@@ -120,6 +109,22 @@ const ExpensesPath = observer(() => {
                               </td>
                             </tr>
                           ))}
+                          <tr>
+                            <td colSpan={4}>
+                            {expensesStore.storeMessage ? (
+                                <div className="status status--message">
+                                  {expensesStore.storeMessage}
+                                </div>
+                              ) : (
+                                <button
+                                  className="button button--table"
+                                  onClick={() => setView('create')}
+                                >
+                                  +
+                                </button>
+                              )}
+                            </td>
+                          </tr>
                           <tr>
                             <td className="table__data">Total</td>
                             <td></td>

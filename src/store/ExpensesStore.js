@@ -57,7 +57,7 @@ class ExpensesStore {
     // action
     async fetchExpenses() {
         if (this.expenses.length > 0) {
-            console.log("Expenses already loaded.");
+            console.log("Troškovi su već dohvaćeni.");
             return;
         }
     
@@ -72,7 +72,7 @@ class ExpensesStore {
     
             const authenticatedUser = this.store.userStore.authenticatedUser;
             if (!authenticatedUser) {
-                throw new Error("Nema autentifikovanog korisnika.");
+                throw new Error("Nema autoriziranog korisnika.");
             }
     
             const userExpenseLinks = usersExpensesData.usersExpensesLink.filter(
@@ -103,7 +103,7 @@ class ExpensesStore {
         autorun(() => {
             if (this.expenses.length >= 5) {
                 runInAction(() => {
-                    this.storeMessage = "You have reached the maximum number of expenses.";
+                    this.storeMessage = "Dosegli ste maksimalan broj troškova.";
 
                 })
             } else {
@@ -113,6 +113,7 @@ class ExpensesStore {
             }
         });
   
+        
         
 
     }
@@ -127,7 +128,7 @@ class ExpensesStore {
 
  
 
-    // (actions) create, edit, delete
+    // create, edit, delete
     async createExpense(name, price, categoryId) {
        
         try {
@@ -167,7 +168,7 @@ class ExpensesStore {
                 });
 
             } else {
-                console.error("Expense not found.");
+                console.error("Trošak nije pronađen.");
             }
 
         } catch (error) {
@@ -198,7 +199,7 @@ class ExpensesStore {
                 
 
             } else {
-                console.error(`Expense with id ${id} not found.`);
+                console.error(`Trošak sa id-em: ${id} nije pronađen.`);
             }
         } catch (error) {
             console.error(error);
@@ -211,7 +212,7 @@ class ExpensesStore {
                 this.expenses = this.expenses.filter(expense => expense.id !== id);
             })
         } catch (error) {
-            console.error("Failure during the delete of expense");
+            console.error("Pogreška prilikom brisanja troška.");
         }
     }
     

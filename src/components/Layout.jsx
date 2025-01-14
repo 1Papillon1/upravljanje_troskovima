@@ -8,26 +8,30 @@ import store from "../store/RootStore";
 const Layout = observer(({ children }) => {
   const { userStore, routerStore } = store;
 
-  // Provjera autentifikacije
-  const isAuthenticated = userStore.authenticatedUser !== null;
+  // Provjera autorizacije
+  const isLoggedIn = userStore.isLoggedIn;
 
   useEffect(() => {
    
-    if (!isAuthenticated) {
+    if (!isLoggedIn) {
       routerStore.goTo('login'); 
     }
-  }, [isAuthenticated, routerStore]);
+  }, [isLoggedIn, routerStore]);
 
-
-  if (!isAuthenticated) {
-    return null; 
-  }
+if (!isLoggedIn) {
+  return null;
+}
+ 
 
   return (
     <>
-    <div class="status status--success">
-        <span class="status__text">Uspješno ste se prijavili.</span>
-      </div>
+    {userStore.message && (
+        <div className="status status--success">
+          <span className="status__text">Uspješno ste se prijavili</span>
+        </div>
+      )}
+
+
     <div className="layout">
       
       <Navigation />

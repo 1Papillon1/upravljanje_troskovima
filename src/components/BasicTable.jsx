@@ -1,7 +1,5 @@
 import React from "react";
 import Table from '@mui/joy/Table';
-import { useState, useEffect } from "react";
-import { observer } from "mobx-react";
 
 
 

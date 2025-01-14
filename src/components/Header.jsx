@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { Person } from "@mui/icons-material";
 import { CircleFlag } from 'react-circle-flags'
 import { observer } from "mobx-react";

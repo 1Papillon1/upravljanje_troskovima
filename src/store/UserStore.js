@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction, when } from 'mobx';
-import bcrypt from 'bcryptjs/dist/bcrypt';
+import bcrypt from "bcryptjs-react";
 import store from "./RootStore";
 
 class UserStore {
@@ -23,10 +23,10 @@ class UserStore {
 
             () => {
                 runInAction(() => {
-                    this.message = `Dobrodošli, ${this.authenticatedUser.name}!`;
+                    this.message = `${this.authenticatedUser.name}, uspješno ste se prijavili.`;
                 })
 
-                const timeRemaining = setTimeout(() => {
+                const timer = setTimeout(() => {
                     runInAction(() => {
                         this.message = null;
                     });

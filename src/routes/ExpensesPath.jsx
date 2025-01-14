@@ -178,7 +178,7 @@ const ExpensesPath = observer(() => {
                         } 
                       />
 
-                      <div className="form__group">
+                      <div className="form__group form__group--secondary">
                         <button
                           type="button"
                           className="form__submit form__submit--secondary"
@@ -265,7 +265,7 @@ const ExpensesPath = observer(() => {
                         </div>
                       </div>
 
-                      <div className="form__group">
+                      <div className="form__group form__group--secondary">
                         <button
                           type="button"
                           className="form__submit form__submit--secondary"

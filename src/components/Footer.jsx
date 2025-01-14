@@ -1,10 +1,10 @@
 import React from "react";
-import store from "../store/RootStore";
+
 import { observer } from "mobx-react";
 
-const Navigation = observer(() =>   {
+const Footer = observer(() =>   {
 
-    const routerStore = store.routerStore;
+
     
 
     return(
@@ -17,4 +17,4 @@ const Navigation = observer(() =>   {
     )
 })
 
-export default Navigation;
+export default Footer;

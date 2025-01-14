@@ -2,6 +2,7 @@ import userEvent from "@testing-library/user-event";
 import { autorun, makeAutoObservable, runInAction } from "mobx";
 import store from "./RootStore";
 
+
 class ExpensesStore {
 
     store;

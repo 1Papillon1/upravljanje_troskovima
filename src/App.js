@@ -25,6 +25,8 @@ const App = observer(() => {
     useEffect(() => {
         if (!authenticatedUser && routerState.routeName !== 'login') {
             store.routerStore.goTo('login');
+        } else {
+            store.routerStore.goTo('pocetna');
         }
     }, [authenticatedUser, routerState.routeName]);
 

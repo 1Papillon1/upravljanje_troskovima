@@ -10,7 +10,7 @@ import store from "../store/RootStore";
 const Navigation = observer(() =>   {
 
     const routerStore = store.routerStore;
-  
+    const uiStore = store.uiStore;
     
 
 
@@ -34,7 +34,8 @@ const Navigation = observer(() =>   {
     <a className="link link--navigation">
       <HomeIcon className="link__icon" />
       <span className="link__text">
-        Početna
+        {uiStore.currentLanguage === "hr" ? "Početna" : "Home"}
+      
       </span>
     </a>
   </li>
@@ -42,13 +43,16 @@ const Navigation = observer(() =>   {
     <a className="link link--navigation">
       <AttachMoneyIcon className="link__icon" />
       <span className="link__text">
-        Troškovi
+        {uiStore.currentLanguage === "hr" ? "Troskovi" : "Expenses"}
+        
       </span>
     </a>
   </li>
   <li className="list__item" onClick={() => changeRoute("login")}>
         <a className="link link--navigation">
-            <span className="link__text" >Odjava</span>
+            <span className="link__text" >
+                {uiStore.currentLanguage === "hr" ? "Odjava" : "Logout"}
+            </span>
         </a>                 
     </li>
 </ul>

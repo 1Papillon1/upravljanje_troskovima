@@ -12,6 +12,7 @@ import store from "../store/RootStore";
 const ExpensesPath = observer(() => {
   const routerStore = store.routerStore;
   const expensesStore = store.expensesStore;
+  const uiStore = store.uiStore;
   const userStore = store.userStore;
 
   const totalPriceOfExpenses = expensesStore.totalPriceOfExpenses;
@@ -70,20 +71,20 @@ const ExpensesPath = observer(() => {
         <Card
           content={
             <>
-              
               {view === "list" ? (
                 <>
-
-              
-
                   <Table
                     content={
                       <>
                         <thead className="table__head">
                           <tr className="table__row">
                             <th className="table__heading">Id</th>
-                            <th className="table__heading">Naziv</th>
-                            <th className="table__heading table__heading--right">Iznos</th>
+                            <th className="table__heading">
+                              {uiStore.currentLanguage === "hr" ? "Naziv" : "Name"}
+                            </th>
+                            <th className="table__heading table__heading--right">
+                              {uiStore.currentLanguage === "hr" ? "Iznos" : "Amount"}
+                            </th>
                             <th className="table__heading table__heading--right table__heading--group"></th>
                           </tr>
                         </thead>
@@ -111,22 +112,24 @@ const ExpensesPath = observer(() => {
                           ))}
                           <tr>
                             <td colSpan={4}>
-                            {expensesStore.storeMessage ? (
+                              {expensesStore.storeMessage ? (
                                 <div className="status status--message">
                                   {expensesStore.storeMessage}
                                 </div>
                               ) : (
                                 <button
                                   className="button button--table"
-                                  onClick={() => setView('create')}
+                                  onClick={() => setView("create")}
                                 >
-                                  +
+                                  {uiStore.currentLanguage === "hr" ? "+" : "+"}
                                 </button>
                               )}
                             </td>
                           </tr>
                           <tr>
-                            <td className="table__data">Total</td>
+                            <td className="table__data">
+                              {uiStore.currentLanguage === "hr" ? "Ukupno" : "Total"}
+                            </td>
                             <td></td>
                             <td className="table__data">
                               {totalPriceOfExpenses}€
@@ -147,7 +150,7 @@ const ExpensesPath = observer(() => {
                         className="form__label form__label--secondary"
                         htmlFor="name"
                       >
-                        Naziv
+                        {uiStore.currentLanguage === "hr" ? "Naziv" : "Name"}
                       </label>
                       <input
                         id="name"
@@ -156,14 +159,14 @@ const ExpensesPath = observer(() => {
                         value={expense?.name || ""}
                         onChange={(e) =>
                           setExpense({ ...expense, name: e.target.value })
-                        } 
+                        }
                       />
 
                       <label
                         className="form__label form__label--secondary"
                         htmlFor="price"
                       >
-                        Cijena
+                        {uiStore.currentLanguage === "hr" ? "Cijena" : "Price"}
                       </label>
                       <input
                         id="price"
@@ -175,7 +178,7 @@ const ExpensesPath = observer(() => {
                             ...expense,
                             price: parseFloat(e.target.value),
                           })
-                        } 
+                        }
                       />
 
                       <div className="form__group form__group--secondary">
@@ -184,14 +187,18 @@ const ExpensesPath = observer(() => {
                           className="form__submit form__submit--secondary"
                           onClick={handleSave}
                         >
-                          Spremi promjene
+                          {uiStore.currentLanguage === "hr"
+                            ? "Spremi promjene"
+                            : "Save changes"}
                         </button>
                         <button
                           type="button"
                           className="form__submit form__submit--secondary"
                           onClick={() => setView("list")}
                         >
-                          Odustani
+                          {uiStore.currentLanguage === "hr"
+                            ? "Odustani"
+                            : "Cancel"}
                         </button>
                       </div>
                     </>
@@ -202,14 +209,13 @@ const ExpensesPath = observer(() => {
                   routerStore={routerStore}
                   content={
                     <>
-                    <div className="flex">
-                   
-                      <div className="form__group form__group--column">
+                      <div className="flex">
+                        <div className="form__group form__group--column">
                           <label
                             className="form__label form__label"
                             htmlFor="name"
                           >
-                            Naziv
+                            {uiStore.currentLanguage === "hr" ? "Naziv" : "Name"}
                           </label>
                           <input
                             id="name"
@@ -223,45 +229,47 @@ const ExpensesPath = observer(() => {
                         </div>
 
                         <div className="form__group form__group--column">
-                        <label
-                          className="form__label form__label"
-                          htmlFor="price"
-                        >
-                          Cijena
-                        </label>
-                        <input
-                          id="price"
-                          type="number"
-                          className="form__input form__input"
-                          value={newExpense.price}
-                          onChange={(e) =>
-                            setNewExpense({
-                              ...newExpense,
-                              price: e.target.value,
-                            })
-                          }
-                        />
+                          <label
+                            className="form__label form__label"
+                            htmlFor="price"
+                          >
+                            {uiStore.currentLanguage === "hr" ? "Cijena" : "Price"}
+                          </label>
+                          <input
+                            id="price"
+                            type="number"
+                            className="form__input form__input"
+                            value={newExpense.price}
+                            onChange={(e) =>
+                              setNewExpense({
+                                ...newExpense,
+                                price: e.target.value,
+                              })
+                            }
+                          />
                         </div>
 
                         <div className="form__group form__group--column">
-                        <label
-                          className="form__label form__label"
-                          htmlFor="categoryId"
-                        >
-                          Kategorija ID
-                        </label>
-                        <input
-                          id="categoryId"
-                          type="number"
-                          className="form__input form__input"
-                          value={newExpense.categoryId}
-                          onChange={(e) =>
-                            setNewExpense({
-                              ...newExpense,
-                              categoryId: e.target.value,
-                            })
-                          }
-                        />
+                          <label
+                            className="form__label form__label"
+                            htmlFor="categoryId"
+                          >
+                            {uiStore.currentLanguage === "hr"
+                              ? "Kategorija ID"
+                              : "Category ID"}
+                          </label>
+                          <input
+                            id="categoryId"
+                            type="number"
+                            className="form__input form__input"
+                            value={newExpense.categoryId}
+                            onChange={(e) =>
+                              setNewExpense({
+                                ...newExpense,
+                                categoryId: e.target.value,
+                              })
+                            }
+                          />
                         </div>
                       </div>
 
@@ -271,14 +279,18 @@ const ExpensesPath = observer(() => {
                           className="form__submit form__submit--secondary"
                           onClick={handleCreate}
                         >
-                          Kreiraj trošak
+                          {uiStore.currentLanguage === "hr"
+                            ? "Kreiraj trošak"
+                            : "Create expense"}
                         </button>
                         <button
                           type="button"
                           className="form__submit form__submit--secondary"
                           onClick={() => setView("list")}
                         >
-                          Odustani
+                          {uiStore.currentLanguage === "hr"
+                            ? "Odustani"
+                            : "Cancel"}
                         </button>
                       </div>
                     </>

@@ -21,12 +21,12 @@ const AuthPath = observer(() =>   {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    if (userStore.authenticatedUser) {
+      routerStore.goTo('pocetna');
+    } 
+  }, [])
 
- useEffect(() => {
-  if (routerStore.route.name === 'home') {
-    
-  }
- })
   
 
     const handleSubmit = (e) => {

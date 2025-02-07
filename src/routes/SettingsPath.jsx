@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../components/Card";
 import Form from "../components/Form";
 import { observer } from "mobx-react";
-import { store } from "../store/RootStore";
+
 
 
 const SettingsPath = observer(({store}) =>   {

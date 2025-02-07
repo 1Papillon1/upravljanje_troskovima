@@ -1,16 +1,14 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { useEffect } from "react";
-import Layout from "../components/Layout";
 import Card from "../components/Card";
-import store from "../store/RootStore";
+
 
 
 
 
 
 const HomePath = observer(() =>   {
-    const routerStore = store.routerStore;
+
 
   
 

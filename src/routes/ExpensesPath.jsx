@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Layout from "../components/Layout";
 import Card from "../components/Card";
 import Table from "../components/BasicTable";
 import Form from "../components/Form";
@@ -13,7 +12,7 @@ const ExpensesPath = observer(() => {
   const routerStore = store.routerStore;
   const expensesStore = store.expensesStore;
   const uiStore = store.uiStore;
-  const userStore = store.userStore;
+
 
   const totalPriceOfExpenses = expensesStore.totalPriceOfExpenses;
 

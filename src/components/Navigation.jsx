@@ -48,6 +48,24 @@ const Navigation = observer(() =>   {
       </span>
     </a>
   </li>
+  <li className="list__item" onClick={() => changeRoute("postavke")}>
+    <a className="link link--navigation">
+      <SettingsIcon className="link__icon" />
+      <span className="link__text">
+        {uiStore.currentLanguage === "hr" ? "Postavke" : "Settings"}
+        
+      </span>
+    </a>
+  </li>
+  <li className="list__item" onClick={() => changeRoute("statistika")}>
+    <a className="link link--navigation">
+      <CategoryIcon className="link__icon" />
+      <span className="link__text">
+        {uiStore.currentLanguage === "hr" ? "Statistika" : "Statistics"}
+        
+      </span>
+    </a>
+  </li>
   <li className="list__item" onClick={() => changeRoute("login")}>
         <a className="link link--navigation">
             <span className="link__text" >

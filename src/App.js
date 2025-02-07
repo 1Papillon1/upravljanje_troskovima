@@ -22,13 +22,13 @@ const App = observer(() => {
     const { authenticatedUser } = store.userStore;
 
     // Redirect if unauthenticated
-    useEffect(() => {
+   /*  useEffect(() => {
         if (!authenticatedUser && routerState.routeName !== 'login') {
             store.routerStore.goTo('login');
         } else {
             store.routerStore.goTo('pocetna');
         }
-    }, [authenticatedUser, routerState.routeName]);
+    }, [authenticatedUser, routerState.routeName]); */
 
     return (
         <RouterView routerStore={store.routerStore} viewMap={views} />

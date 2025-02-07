@@ -6,6 +6,7 @@ import UIStore from './UIStore';
 
 // definiranje ruta
 const routes = [
+    { name: 'home', pattern: '/' },
     { name: 'login', pattern: '/login' },
     { name: 'pocetna', pattern: '/pocetna' },
     { name: 'troskovi', pattern: '/troskovi' },

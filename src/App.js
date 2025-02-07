@@ -10,6 +10,7 @@ import store from './store/RootStore';
 import Layout from './components/Layout';
 
 const views = {
+    home: <AuthPath />,
     login: <AuthPath />,
     pocetna: <Layout><HomePath /></Layout>,
     troskovi: <Layout><ExpensesPath /></Layout>,
@@ -21,14 +22,7 @@ const App = observer(() => {
     const { routerState } = store.routerStore;
     const { authenticatedUser } = store.userStore;
 
-    // Redirect if unauthenticated
-   /*  useEffect(() => {
-        if (!authenticatedUser && routerState.routeName !== 'login') {
-            store.routerStore.goTo('login');
-        } else {
-            store.routerStore.goTo('pocetna');
-        }
-    }, [authenticatedUser, routerState.routeName]); */
+    
 
     return (
         <RouterView routerStore={store.routerStore} viewMap={views} />

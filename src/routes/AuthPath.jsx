@@ -22,7 +22,11 @@ const AuthPath = observer(() =>   {
   const [error, setError] = useState('');
 
 
- 
+ useEffect(() => {
+  if (routerStore.route.name === 'home') {
+    
+  }
+ })
   
 
     const handleSubmit = (e) => {

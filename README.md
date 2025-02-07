@@ -59,4 +59,30 @@
 
 ## 3. Dodaci
 
-- npm install
+- Preuzimanje svih dodataka, koji se trenutno koriste
+  ```bash
+  npm install
+
+- Implementacija sass za kompajliranje stilova
+  ```bash
+  npm install -g sass
+
+- Za uspješno učitavanje (ako prijašnja naredba javlja error)
+  ```bash
+  npm install -D sass-loader@^10 sass
+
+- Implementacija Mobx u Reactu (1. je dovoljna, ali su poželjne sve 3)
+  ```bash
+  npm i mobx
+  npm i mobx-react
+  npm i mobx-react-lite
+
+
+## 4. Pokretanje aplikacije
+- Koristi se za "gužvanje" aplikacije, odnosno pretvara kod projekta u izvršni kod koji se izvršava u pregledniku ili Node-u
+  ```bash
+  npm run build
+
+- Pokreće aplikaciju lokalno u pregledniku
+  ```bash
+  npm start
